@@ -1,0 +1,23 @@
+{
+  "name": "bowl-ms",
+  "version": "1.0.0",
+  "description": "Bowling Microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bristles5/Bowl-MS.git"
+  },
+  "author": "Aaron Gill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bristles5/Bowl-MS/issues"
+  },
+  "homepage": "https://github.com/bristles5/Bowl-MS#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
