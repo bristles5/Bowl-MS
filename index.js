@@ -2,31 +2,21 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 
 const env = require('./src/environment/env');
+const logger = require('./src/utilities/winston-logger');
+const db = require('./src/utilities/mongo');
 
 const app = express();
 
-async function dbConnect(){
+require('./src/routes/routes')(app);
 
-    const uri = env.URI;
+const uri = env.URI;
+const client = new MongoClient(uri,{ useUnifiedTopology: true });
 
-    const client = new MongoClient(uri);
- 
-    try {
-        // Connect to the MongoDB cluster
-        await client.connect();
-        console.log('Connection Established');
- 
-        // Make the appropriate DB calls
-        await  listDatabases(client);
- 
-    } catch (e) {
-        console.error(e);
-    } finally {
-        await client.close();
-    }
-}
-dbConnect();
+db.connect(client);
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.listen(env.PORT, () => logger.info(`App listening at http://localhost:${env.PORT}`));
 
-app.listen(env.PORT, () => console.log(`App listening at http://localhost:${env.PORT}`));
+process.on('SIGINT', async function() {
+    db.close(client);
+    process.kill(process.pid);
+});

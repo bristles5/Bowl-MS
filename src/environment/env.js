@@ -1,4 +1,5 @@
 module.exports = {
     PORT: process.env.PORT || 3000,
-    URI: process.env.URI || `mongodb+srv://Admin:${encodeURIComponent(process.env.MONGO_PASSWORD_DEV)}@cluster0-stht6.mongodb.net/test?retryWrites=true&w=majority`
+    URI: process.env.URI || `mongodb+srv://Admin:${encodeURIComponent(process.env.MONGO_PASSWORD_DEV)}@cluster0-stht6.mongodb.net/test?retryWrites=true&w=majority`,
+    LOG_LEVEL: process.env.LOG_LEVEL || 'info'
 }

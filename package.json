@@ -20,7 +20,8 @@
   "homepage": "https://github.com/bristles5/Bowl-MS#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^3.5.7"
+    "mongodb": "^3.5.7",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
